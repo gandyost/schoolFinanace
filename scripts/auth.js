@@ -51,3 +51,15 @@ export const observeAuthState = (callback) => {
         }
     });
 };
+
+
+// 사용자 상태 관찰
+observeAuthState((user) => {
+    if (user) {
+        document.getElementById("auth-section").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+    } else {
+        document.getElementById("auth-section").style.display = "block";
+        document.getElementById("dashboard").style.display = "none";
+    }
+});
