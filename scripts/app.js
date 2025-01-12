@@ -44,22 +44,3 @@ document.getElementById("logout-btn").addEventListener("click", async () => {
     await logoutUser();
     alert("로그아웃 성공!");
 });
-
-// 회원가입 시 기본 데이터 저장
-export const registerUser = async (email, password) => {
-    try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-
-        // 기본 데이터 저장
-        await writeData(`users/${user.uid}`, {
-            email: user.email,
-            balance: 0, // 초기 잔액
-            createdAt: new Date().toISOString()
-        });
-
-        console.log("회원가입 및 데이터 저장 성공:", user);
-    } catch (error) {
-        console.error("회원가입 실패:", error.message);
-    }
-};
