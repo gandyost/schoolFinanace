@@ -15,7 +15,6 @@ const firebaseConfig = {
     storageBucket: "economy-education.firebasestorage.app",
     messagingSenderId: "1057722381406",
     appId: "1:1057722381406:web:cb979af402697e9895b0cf",
-    measurementId: "G-K92EXK24BF"
 };
 
 
