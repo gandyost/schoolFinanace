@@ -71,24 +71,6 @@ observeAuthState(async (user) => {
     }
 });
 
-export const registerUser = async (email, password) => {
-    try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-
-        // 기본 사용자 데이터 저장
-        await writeData(`users/${user.uid}`, {
-            email: user.email,
-            balance: 1000, // 초기 잔액
-            salary: 2000, // 초기 월급
-            createdAt: new Date().toISOString()
-        });
-
-        console.log("회원가입 성공 및 초기 데이터 저장 완료:", user);
-    } catch (error) {
-        console.error("회원가입 실패:", error.message);
-    }
-};
 
 // 버튼 클릭 이벤트
 showLoginBtn.addEventListener("click", () => {
