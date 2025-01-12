@@ -6,16 +6,25 @@ import {
     signOut,
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+import { writeData } from "./database.js";
 
 // 회원가입 함수
 export const registerUser = async (email, password) => {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        console.log("회원가입 성공:", userCredential.user);
-        alert("회원가입이 완료되었습니다!");
+        const user = userCredential.user;
+
+        // 기본 데이터 저장
+        await writeData(`users/${user.uid}`, {
+            email: user.email,
+            balance: 1000, // 초기 잔액
+            salary: 2000, // 월급
+            createdAt: new Date().toISOString()
+        });
+
+        console.log("회원가입 및 초기 데이터 저장 성공:", user);
     } catch (error) {
         console.error("회원가입 실패:", error.message);
-        alert(`회원가입 실패: ${error.message}`);
     }
 };
 

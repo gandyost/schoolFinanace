@@ -10,31 +10,42 @@
     <!-- 헤더 -->
     <header>
         <h1>경제 교육 프로그램</h1>
+        <div class="auth-buttons">
+            <button id="show-login-btn">로그인</button>
+            <button id="show-register-btn">회원가입</button>
+        </div>
     </header>
 
-    <!-- 인증 섹션 -->
-    <main id="auth-section">
-        <h2>회원가입 / 로그인</h2>
-        <!-- 회원가입 -->
-        <div id="register-form">
-            <h3>회원가입</h3>
-            <input type="email" id="register-email" placeholder="이메일" required>
-            <input type="password" id="register-password" placeholder="비밀번호" required>
-            <button id="register-btn">회원가입</button>
-        </div>
-        <!-- 로그인 -->
-        <div id="login-form">
-            <h3>로그인</h3>
-            <input type="email" id="login-email" placeholder="이메일" required>
-            <input type="password" id="login-password" placeholder="비밀번호" required>
-            <button id="login-btn">로그인</button>
-        </div>
+    <!-- 초기 화면 -->
+    <main id="auth-selection">
+        <h2>환영합니다!</h2>
+        <p>원하는 기능을 선택하세요.</p>
     </main>
 
-    <!-- 대시보드 섹션 -->
+    <!-- 회원가입 폼 -->
+    <main id="register-form" style="display: none;">
+        <h2>회원가입</h2>
+        <input type="email" id="register-email" placeholder="이메일" required>
+        <input type="password" id="register-password" placeholder="비밀번호" required>
+        <button id="register-btn">회원가입</button>
+        <button id="cancel-register-btn">취소</button>
+    </main>
+
+    <!-- 로그인 폼 -->
+    <main id="login-form" style="display: none;">
+        <h2>로그인</h2>
+        <input type="email" id="login-email" placeholder="이메일" required>
+        <input type="password" id="login-password" placeholder="비밀번호" required>
+        <button id="login-btn">로그인</button>
+        <button id="cancel-login-btn">취소</button>
+    </main>
+
+    <!-- 대시보드 -->
     <main id="dashboard" style="display: none;">
         <h2>대시보드</h2>
-        <p>환영합니다! 현재 잔액: <span id="user-balance">0</span> 미소</p>
+        <p>환영합니다, <span id="user-email"></span>님!</p>
+        <p>현재 잔액: <span id="user-balance">0</span> 미소</p>
+        <p>월급: <span id="user-salary">0</span> 미소</p>
         <button id="logout-btn">로그아웃</button>
     </main>
 

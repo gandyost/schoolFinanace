@@ -1,7 +1,6 @@
 // scripts/app.js
 import { registerUser, loginUser, logoutUser, observeAuthState } from "./auth.js";
 import { writeData, readData } from "./database.js";
-import { auth } from "./firebase.js";
 
 // 회원가입 버튼 이벤트
 document.getElementById("register-btn").addEventListener("click", async () => {
@@ -33,4 +32,62 @@ document.getElementById("login-btn").addEventListener("click", async () => {
 document.getElementById("logout-btn").addEventListener("click", async () => {
     await logoutUser();
     alert("로그아웃 성공!");
+});
+
+observeAuthState(async (user) => {
+    if (user) {
+        document.getElementById("auth-section").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+
+        // 사용자 이메일 표시
+        document.getElementById("user-email").textContent = user.email;
+
+        // 사용자 데이터베이스에서 정보 불러오기
+        const userData = await readData(`users/${user.uid}`);
+        if (userData) {
+            document.getElementById("user-balance").textContent = userData.balance || 0;
+            document.getElementById("user-salary").textContent = userData.salary || 0;
+        }
+    } else {
+        document.getElementById("auth-section").style.display = "block";
+        document.getElementById("dashboard").style.display = "none";
+    }
+});
+
+
+// scripts/app.js
+
+// 초기 화면 및 버튼들
+const authSelection = document.getElementById("auth-selection");
+const showLoginBtn = document.getElementById("show-login-btn");
+const showRegisterBtn = document.getElementById("show-register-btn");
+
+// 로그인/회원가입 폼
+const loginForm = document.getElementById("login-form");
+const registerForm = document.getElementById("register-form");
+const cancelLoginBtn = document.getElementById("cancel-login-btn");
+const cancelRegisterBtn = document.getElementById("cancel-register-btn");
+
+// 대시보드
+const dashboard = document.getElementById("dashboard");
+
+// 버튼 클릭 이벤트
+showLoginBtn.addEventListener("click", () => {
+    authSelection.style.display = "none";
+    loginForm.style.display = "block";
+});
+
+showRegisterBtn.addEventListener("click", () => {
+    authSelection.style.display = "none";
+    registerForm.style.display = "block";
+});
+
+cancelLoginBtn.addEventListener("click", () => {
+    loginForm.style.display = "none";
+    authSelection.style.display = "block";
+});
+
+cancelRegisterBtn.addEventListener("click", () => {
+    registerForm.style.display = "none";
+    authSelection.style.display = "block";
 });
