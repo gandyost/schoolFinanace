@@ -28,19 +28,9 @@ document.getElementById("login-btn").addEventListener("click", async () => {
     }
 });
 
-// 사용자 상태 관찰
-observeAuthState((user) => {
-    if (user) {
-        document.getElementById("auth-section").style.display = "none";
-        document.getElementById("dashboard").style.display = "block";
-    } else {
-        document.getElementById("auth-section").style.display = "block";
-        document.getElementById("dashboard").style.display = "none";
-    }
-});
-
 // 로그아웃 버튼 이벤트
 document.getElementById("logout-btn").addEventListener("click", async () => {
     await logoutUser();
     alert("로그아웃 성공!");
 });
+
