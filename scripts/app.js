@@ -1,6 +1,7 @@
 // scripts/app.js
 import { registerUser, loginUser, logoutUser, observeAuthState } from "./auth.js";
 import { writeData, readData } from "./database.js";
+import { auth } from "./firebase.js";
 
 // 회원가입 버튼 이벤트
 document.getElementById("register-btn").addEventListener("click", async () => {
