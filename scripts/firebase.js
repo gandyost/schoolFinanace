@@ -11,15 +11,18 @@ import { getDatabase } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-
 const firebaseConfig = {
     apiKey: "AIzaSyDSqts518Z55zZTTNmeuQmVZq37jH_fZdQ",
     authDomain: "economy-education.firebaseapp.com",
+    databaseURL: "https://economy-education-default-rtdb.firebaseio.com",
     projectId: "economy-education",
     storageBucket: "economy-education.firebasestorage.app",
     messagingSenderId: "1057722381406",
     appId: "1:1057722381406:web:cb979af402697e9895b0cf",
+    measurementId: "G-K92EXK24BF"
 };
 
 
 // Firebase 초기화
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 // Firebase 모듈 내보내기
 export const auth = getAuth(app);
