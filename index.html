@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경제 교육 프로그램</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <h1>경제 교육 프로그램</h1>
+    </header>
+
+    <!-- 인증 섹션 -->
+    <main id="auth-section">
+        <h2>회원가입 / 로그인</h2>
+        <!-- 회원가입 -->
+        <div id="register-form">
+            <h3>회원가입</h3>
+            <input type="email" id="register-email" placeholder="이메일" required>
+            <input type="password" id="register-password" placeholder="비밀번호" required>
+            <button id="register-btn">회원가입</button>
+        </div>
+        <!-- 로그인 -->
+        <div id="login-form">
+            <h3>로그인</h3>
+            <input type="email" id="login-email" placeholder="이메일" required>
+            <input type="password" id="login-password" placeholder="비밀번호" required>
+            <button id="login-btn">로그인</button>
+        </div>
+    </main>
+
+    <!-- 대시보드 섹션 -->
+    <main id="dashboard" style="display: none;">
+        <h2>대시보드</h2>
+        <p>환영합니다! 현재 잔액: <span id="user-balance">0</span> 미소</p>
+        <button id="logout-btn">로그아웃</button>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>© 2025 경제 교육 프로그램</p>
+    </footer>
+
+    <!-- 스크립트 -->
+    <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
