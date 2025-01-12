@@ -4,7 +4,6 @@ import { writeData, readData } from "./database.js";
 
 // 회원가입 버튼 이벤트
 document.getElementById("register-btn").addEventListener("click", async () => {
-     console.log("회원가입 버튼 클릭됨");
     const email = document.getElementById("register-email").value;
     const password = document.getElementById("register-password").value;
     if (email && password) {
@@ -28,9 +27,9 @@ document.getElementById("login-btn").addEventListener("click", async () => {
     }
 });
 
+
 // 로그아웃 버튼 이벤트
 document.getElementById("logout-btn").addEventListener("click", async () => {
     await logoutUser();
     alert("로그아웃 성공!");
 });
-
